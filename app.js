@@ -3,6 +3,7 @@ const express = require("express");
 const { env } = require("process");
 const path = require("path");
 const fs = require("fs");
+var cors = require("cors");
 const api = require("./api");
 
 const app = express();
@@ -25,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 // Return latest 5 match json files
-app.get("/api/recent-match", (req, res) => {
+app.get("/api/recent-matches", cors(), (req, res) => {
   api.getRecentGames(res);
 });
 
